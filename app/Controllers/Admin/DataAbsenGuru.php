@@ -98,6 +98,17 @@ class DataAbsenGuru extends BaseController
          $response['status'] = FALSE;
       }
 
+      public function updateStatusAbsensi($idSiswa)
+{
+    // ... logika update status absensi ...
+
+    // Kirim notifikasi WhatsApp
+    $notifikasi = new NotifikasiController();
+    $notifikasi->kirimNotifikasi($idSiswa);
+
+    // ...
+}
+
       return $this->response->setJSON($response);
    }
 }
